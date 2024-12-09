@@ -18,23 +18,38 @@ const helados = [
 
 export const HeladosPage = () => {
     return (
-        <Box>
-            <Typography variant="h4" sx={{ mb:4, fontWeight:'bold', color:'primary.main' }}>Helados</Typography>
+        <Box sx={{
+            '@keyframes fadeUp': {
+              from: { opacity:0, transform:'translateY(20px)' },
+              to: { opacity:1, transform:'translateY(0)' }
+            },
+            animation:'fadeUp 0.7s ease-in-out',
+        }}>
+            <Typography variant="h4" sx={{ mb:4, fontWeight:'bold', color:'primary.main', textAlign:'center' }}>
+                Helados
+            </Typography>
             <Grid container spacing={2}>
                 {helados.map(item => (
                     <Grid item xs={12} sm={6} md={4} key={item.id}>
                         <Card sx={{ 
-                            transition:'transform 0.3s', 
-                            '&:hover':{transform:'scale(1.05)'} 
+                            transition:'transform 0.3s, box-shadow 0.3s', 
+                            '&:hover':{
+                                transform:'scale(1.05)',
+                                boxShadow:'0px 4px 20px rgba(0,0,0,0.1)'
+                            },
+                            borderRadius: '12px'
                         }}>
                             <CardMedia
                                 component="img"
                                 height="140"
                                 image={item.img}
                                 alt={item.title}
+                                sx={{borderRadius:'12px 12px 0 0'}}
                             />
                             <CardContent>
-                                <Typography variant="h6" sx={{color:'#4f3cc9', fontWeight:'bold'}}>{item.title}</Typography>
+                                <Typography variant="h6" sx={{color:'#4f3cc9', fontWeight:'bold'}}>
+                                    {item.title}
+                                </Typography>
                                 <Typography variant="body2">Likes: 800</Typography>
                                 <Typography variant="body2">Precio: ${item.price}</Typography>
                             </CardContent>
