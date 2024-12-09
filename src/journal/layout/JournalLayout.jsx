@@ -1,11 +1,12 @@
 // journal/layout/JournalLayout.jsx
 import { useState } from 'react';
-import { Box, Drawer, useMediaQuery, useTheme, Container, Toolbar } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Box, Drawer, useMediaQuery, useTheme, Container } from '@mui/material';
 import { NavBar } from '../components/NavBar';
 import { useSelector } from 'react-redux';
 import { SideBar } from '../components/SideBar';
-import { drawerWidth, navItems } from '../constants';
+import { drawerWidth } from '../constants';
+
+import fondoRosa from '../assets/SVG/fondo rosa.png'; // Importa la imagen
 
 export const JournalLayout = ({ children }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -18,13 +19,21 @@ export const JournalLayout = ({ children }) => {
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection:'column', minHeight:'100vh', backgroundColor:'#fff' }}>
+        <Box sx={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            minHeight: '100vh',
+            // Fondo Rosa
+            backgroundImage: `url(${fondoRosa})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            backgroundRepeat: 'no-repeat'
+        }}>
             
-            {/* NavBar con enlaces directos en pantallas grandes */}
-            <NavBar drawerWidth={drawerWidth} handleDrawerToggle={handleDrawerToggle} />
-
-            {/* Drawer sólo en mobile */}
-            { isMobile && (
+            <NavBar handleDrawerToggle={handleDrawerToggle} />
+            
+            {isMobile && (
                 <Drawer
                     variant="temporary"
                     open={mobileOpen}
@@ -39,24 +48,23 @@ export const JournalLayout = ({ children }) => {
                 </Drawer>
             )}
 
-            {/* Contenido principal centrado */}
             <Box
                 component="main"
                 sx={{ 
                     flexGrow: 1, 
-                    mt: '64px', // Ajustar para no solapar con el AppBar
+                    mt: '64px',
                     '@keyframes fadeInMain': {
                         from: { opacity: 0 },
                         to: { opacity: 1 },
                     },
-                    animation: 'fadeInMain 0.7s ease-in-out'
+                    animation: 'fadeInMain 0.7s ease-in-out',
+                    py:4
                 }}
             >
-                {/* Usamos Container para centrar el contenido y limitar su ancho */}
-                <Container maxWidth="lg" sx={{ py: 4 }}>
+                <Container maxWidth="lg">
                     {children}
                 </Container>
             </Box>
         </Box>
-    )
+    );
 };

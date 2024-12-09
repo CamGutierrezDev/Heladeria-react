@@ -14,6 +14,7 @@ export const JournalRoutes = () => {
         <Route path="/fresas-con-crema" element={ <FresasPage /> } />
         <Route path="/contacto" element={ <ContactPage /> } />
 
+        {/* Redirección para rutas no definidas */}
         <Route path="/*" element={ <Navigate to="/" /> } />
       </Routes>
     </JournalLayout>

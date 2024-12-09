@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { SideBarItem } from './SideBarItem';
 
 export const SideBar = ({ displayName }) => {
-    const { notes } = useSelector( state => state.journal );
+    const { notes } = useSelector(state => state.journal);
     return (
         <Box
             sx={{ 
@@ -16,13 +16,13 @@ export const SideBar = ({ displayName }) => {
                     to: { opacity: 1 },
                 },
                 animation: 'fadeIn 0.5s ease-in-out',
-                color:'#fff'
+                color: '#fff'
             }}
         >
-            <Typography variant='h6' sx={{ my: 2, fontWeight:'bold' }}>
+            <Typography variant='h6' sx={{ my: 2, fontWeight: 'bold' }}>
                 { displayName || 'Journal' }
             </Typography>
-            <Divider sx={{borderColor:'rgba(255,255,255,0.3)'}} />
+            <Divider sx={{ borderColor: 'rgba(255,255,255,0.3)' }} />
 
             <List>
                 { notes.map(note => (
@@ -30,5 +30,5 @@ export const SideBar = ({ displayName }) => {
                 )) }
             </List>
         </Box>
-    )
+    );
 };

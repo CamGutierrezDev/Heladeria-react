@@ -20,12 +20,11 @@ export const NavBar = ({ handleDrawerToggle }) => {
             position='fixed'
             sx={{ 
                 width: '100%',
-                ml: { sm: `${drawerWidth}px` },
                 backgroundColor: '#EC69B0',
-                boxShadow:'0px 2px 10px rgba(0,0,0,0.2)',
+                boxShadow: '0px 2px 10px rgba(0,0,0,0.2)',
                 '@keyframes fadeInNav': {
-                    from: { opacity: 0, transform:'translateY(-20px)' },
-                    to: { opacity: 1, transform:'translateY(0)' },
+                    from: { opacity: 0, transform: 'translateY(-20px)' },
+                    to: { opacity: 1, transform: 'translateY(0)' },
                 },
                 animation: 'fadeInNav 0.5s ease-in-out'
             }}
@@ -48,12 +47,12 @@ export const NavBar = ({ handleDrawerToggle }) => {
                     component={RouterLink} 
                     to="/" 
                     sx={{ 
-                        textDecoration:'none', 
-                        color:'white', 
-                        fontWeight:'bold', 
+                        textDecoration: 'none', 
+                        color: 'white', 
+                        fontWeight: 'bold', 
                         '&:hover': { 
-                            opacity:0.8,
-                            transition:'opacity 0.3s ease-in-out'
+                            opacity: 0.8,
+                            transition: 'opacity 0.3s ease-in-out'
                         } 
                     }}
                 >
@@ -62,17 +61,17 @@ export const NavBar = ({ handleDrawerToggle }) => {
 
                 {/* En pantallas grandes mostramos los enlaces en el NavBar */}
                 {!isMobile && (
-                    <Box sx={{ flexGrow: 1, display:'flex', justifyContent:'center', gap:2, ml:4 }}>
+                    <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', gap: 2, ml: 4 }}>
                         {navItems.map((item) => (
                             <Button
                                 key={item.text}
                                 component={RouterLink}
                                 to={item.to}
                                 sx={{
-                                    color:'white',
-                                    fontWeight:'bold',
-                                    textTransform:'none',
-                                    '&:hover': { opacity:0.9 }
+                                    color: 'white',
+                                    fontWeight: 'bold',
+                                    textTransform: 'none',
+                                    '&:hover': { opacity: 0.9 }
                                 }}
                             >
                                 {item.text}
@@ -81,14 +80,14 @@ export const NavBar = ({ handleDrawerToggle }) => {
                     </Box>
                 )}
 
-                <Box sx={{ ml:'auto' }}>
+                <Box sx={{ ml: 'auto' }}>
                     <IconButton 
                         color='inherit'
                         onClick={onLogout}
                         sx={{
                             '&:hover': {
-                                backgroundColor:'rgba(255,255,255,0.1)',
-                                transition:'background-color 0.3s ease'
+                                backgroundColor: 'rgba(255,255,255,0.1)',
+                                transition: 'background-color 0.3s ease'
                             }
                         }}
                     >
@@ -97,5 +96,6 @@ export const NavBar = ({ handleDrawerToggle }) => {
                 </Box>
             </Toolbar>
         </AppBar>
-    )
+    );
 };
+    
