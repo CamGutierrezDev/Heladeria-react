@@ -4,7 +4,6 @@ import { JournalLayout } from '../layout/JournalLayout';
 import { ContactPage, FresasPage, HeladosPage, MalteadasPage } from '../pages';
 import { HomePage } from '../pages/HomePage';
 
-
 export const JournalRoutes = () => {
   return (
     <JournalLayout>
