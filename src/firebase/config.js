@@ -45,13 +45,13 @@ const {
 // };
 
 const firebaseConfig = {
-  apiKey: VITE_APIKEY,
-  authDomain: VITE_AUTHDOMAIN,
-  databaseURL: VITE_DATABASEURL,
-  projectId: VITE_PROJECTID,
-  storageBucket: VITE_STORAGEBUCKET,
-  messagingSenderId: VITE_MESSAGINGSENDERID,
-  appId: VITE_APPID,
+  apiKey: "AIzaSyCw_ObP3pWNgF9Ffw9MewnirFQiOM8om98",
+  authDomain: "camcupice.firebaseapp.com",
+  projectId: "camcupice",
+  storageBucket: "camcupice.firebasestorage.app",
+  messagingSenderId: "671436995564",
+  appId: "1:671436995564:web:3016f90a4f5daa83685ec9",
+  measurementId: "G-VK8084NGPN"
 };
 
 // Initialize Firebase
