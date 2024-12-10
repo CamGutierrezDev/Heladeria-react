@@ -9,6 +9,7 @@ import { MalteadasPage } from '../journal/pages/MalteadasPage';
 import { FresasPage } from '../journal/pages/FresasPage';
 import { ContactPage } from '../journal/pages/ContactPage';
 import { JournalLayout } from '../journal/layout/JournalLayout';
+import { RecetasPage } from '../journal/pages/RecetasPage'; // Importamos la nueva página
 
 export const AppRouter = () => {
   const status = useCheckAuth();
@@ -19,7 +20,6 @@ export const AppRouter = () => {
 
   return (
     <Routes>
-      {/* Todas las rutas son públicas */}
       <Route path="/" element={
         <JournalLayout>
           <HomePage />
@@ -50,11 +50,15 @@ export const AppRouter = () => {
         </JournalLayout>
       } />
 
-      {/* Rutas de autenticación (login/register) siempre accesibles */}
-      <Route path="/auth/*" element={<AuthRoutes />} />
+      {/* Nueva ruta para Recetas */}
+      <Route path="/recetas" element={
+        <JournalLayout>
+          <RecetasPage />
+        </JournalLayout>
+      } />
 
-      {/* Redirección para rutas no definidas */}
+      <Route path="/auth/*" element={<AuthRoutes />} />
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>
   )
-}
+};

@@ -4,7 +4,7 @@ import { AppBar, IconButton, Toolbar, Typography, Box, Button, useMediaQuery, us
 import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { startLogout } from '../../store/auth';
-import { drawerWidth, navItems } from '../constants';
+import { drawerWidth } from '../constants';
 
 export const NavBar = ({ handleDrawerToggle }) => {
     const dispatch = useDispatch();
@@ -64,7 +64,6 @@ export const NavBar = ({ handleDrawerToggle }) => {
                     JournalApp
                 </Typography>
 
-                {/* En pantallas grandes mostramos los enlaces en el NavBar */}
                 {!isMobile && (
                     <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', gap: 2, ml: 4 }}>
                         <Button component={RouterLink} to="/" sx={{color:'white', fontWeight:'bold', textTransform:'none','&:hover':{opacity:0.9}}}>Inicio</Button>
@@ -72,6 +71,26 @@ export const NavBar = ({ handleDrawerToggle }) => {
                         <Button component={RouterLink} to="/malteadas" sx={{color:'white', fontWeight:'bold', textTransform:'none','&:hover':{opacity:0.9}}}>Malteadas</Button>
                         <Button component={RouterLink} to="/fresas-con-crema" sx={{color:'white', fontWeight:'bold', textTransform:'none','&:hover':{opacity:0.9}}}>Fresas con Crema</Button>
                         <Button component={RouterLink} to="/contacto" sx={{color:'white', fontWeight:'bold', textTransform:'none','&:hover':{opacity:0.9}}}>Contacto</Button>
+
+                        {/* Botón Recetas solo si está autenticado */}
+                        {isAuthenticated && (
+                            <Button
+                                component={RouterLink}
+                                to="/recetas"
+                                sx={{
+                                    backgroundColor: '#FFFFFF',
+                                    color: '#EC69B0',
+                                    fontWeight: 'bold',
+                                    textTransform: 'none',
+                                    '&:hover': {
+                                        color: '#c2548b',
+                                        transition: '0.3s'
+                                    }
+                                }}
+                            >
+                                Recetas
+                            </Button>
+                        )}
                     </Box>
                 )}
 
