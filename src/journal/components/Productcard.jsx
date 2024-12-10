@@ -1,8 +1,8 @@
 // journal/components/ProductCard.jsx
 import { Card, CardMedia, CardContent, Typography, Box } from '@mui/material';
-import { FavoriteBorder, InfoOutlined } from '@mui/icons-material';
+import { FavoriteBorder, InfoOutlined, LocalOffer } from '@mui/icons-material';
 
-export const ProductCard = ({ title, price, image, details }) => {
+export const ProductCard = ({ title, price, image, details, discount }) => {
     return (
         <Box sx={{ 
             position:'relative', 
@@ -44,6 +44,30 @@ export const ProductCard = ({ title, price, image, details }) => {
                     <Typography variant="body2">Precio: ${price}</Typography>
                 </CardContent>
             </Card>
+
+            {/* Badge de Descuento */}
+            {discount && (
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: 8,
+                        right: 8,
+                        backgroundColor: '#ff5722', // Color naranja para destacar
+                        color: 'white',
+                        borderRadius: '4px',
+                        padding: '2px 6px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 0.5,
+                        fontSize: '0.8rem',
+                        fontWeight: 'bold',
+                        boxShadow: '0px 2px 4px rgba(0,0,0,0.3)'
+                    }}
+                >
+                    <LocalOffer fontSize="small" />
+                    {discount}% OFF
+                </Box>
+            )}
 
             {/* Overlay al hover */}
             <Box 

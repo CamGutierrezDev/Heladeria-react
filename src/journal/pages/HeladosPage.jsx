@@ -1,5 +1,6 @@
 // journal/pages/HeladosPage.jsx
 import { Box, Grid, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
 import helado1 from '../assets/SVG/helados/helado1.svg';
 import helado2 from '../assets/SVG/helados/helado2.svg';
 import helado3 from '../assets/SVG/helados/helado3.svg';
@@ -7,11 +8,12 @@ import helado4 from '../assets/SVG/helados/helado4.svg';
 import helado5 from '../assets/SVG/helados/helado5.svg';
 import helado6 from '../assets/SVG/helados/helado6.svg';
 import { ProductCard } from '../components/ProductCard';
+import { useMemo } from 'react';
 
 const helados = [
   { 
     id: 1, 
-    title: 'Helado con fresas en plato de cono', 
+    title: 'Helado y fresas en plato de cono', 
     price: 10000, 
     img: helado1,
     details: "Contiene: Fresas cortadas, Dos bolas de helado, Sabor opcional"
@@ -54,6 +56,24 @@ const helados = [
 ];
 
 export const HeladosPage = () => {
+    const { status } = useSelector(state => state.auth);
+    const isAuthenticated = (status === 'authenticated');
+
+    // useMemo para generar descuentos una vez al montar el componente
+    const heladosConDescuento = useMemo(() => {
+        if (!isAuthenticated) return helados;
+
+        return helados.map(h => {
+            const descuento = Math.floor(Math.random() * (60 - 10 + 1)) + 10; // 10% a 60%
+            const precioConDescuento = Math.round(h.price * (1 - descuento / 100));
+            return {
+                ...h,
+                discount: descuento,
+                discountedPrice: precioConDescuento
+            };
+        });
+    }, [isAuthenticated]);
+
     return (
         <Box>
             <Typography 
@@ -63,13 +83,18 @@ export const HeladosPage = () => {
                 Helados
             </Typography>
             <Grid container spacing={4}>
-                {helados.map(item => (
+                {heladosConDescuento.map(item => (
                     <Grid item xs={12} sm={6} md={4} key={item.id}>
                         <ProductCard 
                           title={item.title} 
-                          price={item.price} 
                           image={item.img}
-                          details={item.details}
+                          details={
+                            isAuthenticated
+                              ? `${item.details}\nDescuento: ${item.discount}%\nPrecio original: $${item.price}\nPrecio con descuento: $${item.discountedPrice}`
+                              : item.details
+                          }
+                          price={isAuthenticated ? item.discountedPrice : item.price}
+                          discount={isAuthenticated ? item.discount : null}
                         />
                     </Grid>
                 ))}
