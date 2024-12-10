@@ -8,7 +8,7 @@ export const purpleTheme = createTheme({
             main: '#EC69B0', // Rosa vibrante
         },
         secondary: {
-            main: '#fdc20c', // Amarillo dorado
+            main: '#EC69B0', // Amarillo dorado
         },
         error: {
             main: red.A400,
@@ -21,6 +21,6 @@ export const purpleTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: 'Open Sans, sans-serif', // Tipografía moderna y legible
+        fontFamily: 'Britanic Bold', // Tipografía moderna y legible
     },
 });

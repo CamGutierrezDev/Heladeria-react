@@ -47,7 +47,7 @@ export const NavBar = ({ handleDrawerToggle }) => {
                 )}
 
                 <Typography 
-                    variant='h6' 
+                    variant='h4' 
                     noWrap 
                     component={RouterLink} 
                     to="/" 
@@ -61,7 +61,7 @@ export const NavBar = ({ handleDrawerToggle }) => {
                         } 
                     }}
                 >
-                    JournalApp
+                    CamCupIce
                 </Typography>
 
                 {!isMobile && (
@@ -72,7 +72,7 @@ export const NavBar = ({ handleDrawerToggle }) => {
                         <Button component={RouterLink} to="/fresas-con-crema" sx={{color:'white', fontWeight:'bold', textTransform:'none','&:hover':{opacity:0.9}}}>Fresas con Crema</Button>
                         <Button component={RouterLink} to="/contacto" sx={{color:'white', fontWeight:'bold', textTransform:'none','&:hover':{opacity:0.9}}}>Contacto</Button>
 
-                        {/* Botón Recetas solo si está autenticado */}
+                    
                         {isAuthenticated && (
                             <Button
                                 component={RouterLink}

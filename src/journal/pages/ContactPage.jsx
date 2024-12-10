@@ -18,7 +18,8 @@ export const ContactPage = () => {
                     variant="contained" 
                     sx={{ 
                         backgroundColor:'primary.main', 
-                        '&:hover':{opacity:0.9, transform:'scale(1.02)', transition:'0.3s'}
+                        '&:hover':{opacity:0.9, transform:'scale(1.02)', transition:'0.3s'},
+                        color: '#FFFFFF'
                     }}
                 >
                     Enviar Consulta

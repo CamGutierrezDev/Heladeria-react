@@ -1,14 +1,14 @@
 // journal/pages/HomePage.jsx
 import { Box, Grid, Typography, Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import heladosImg from '../assets/SVG/h1.svg'; // Asegúrate de tener las imágenes
+import heladosImg from '../assets/SVG/h1.svg'; 
 import malteadasImg from '../assets/SVG/m1.svg';
 import fresasImg from '../assets/SVG/f1.svg';
 
 export const HomePage = () => {
     return (
         <Box sx={{ textAlign:'center', mt:4 }}>
-            <Typography variant="h4" sx={{ mb:4, color: 'primary.main', fontWeight:'bold' }}>
+            <Typography variant="h4" sx={{ mb:4, color: '#EC69B0', fontWeight:'bold' }}>
                 Descubre nuestros deliciosos postres helados
             </Typography>
             

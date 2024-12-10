@@ -24,7 +24,7 @@ export const RecetasPage = () => {
   return (
     <Box>
       <Typography variant="h4" sx={{ mb: 4, fontWeight: 'bold', color: 'primary.main', textAlign: 'center' }}>
-        Conoce nuestros ingredientes secretos
+        Conoce nuestra receta secreta
       </Typography>
 
       <Grid container spacing={4}>
